@@ -1,0 +1,12 @@
+1: First line
+2: Second line with words
+3: Third line with more words
+
+Cross references:
+first: 1
+line: 1, 2, 3
+more: 3
+second: 2
+third: 3
+with: 2, 3
+words: 2, 3

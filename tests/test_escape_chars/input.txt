@@ -1,0 +1,2 @@
+Tab\tHere\nNewLine
+\033[31mRedText\033[0m

@@ -1,0 +1,2 @@
+Hello\x01World
+Line with\0null

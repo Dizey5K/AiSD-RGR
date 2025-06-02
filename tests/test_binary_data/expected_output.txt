@@ -1,0 +1,7 @@
+1: HelloWorld
+2: Line withnull
+
+Cross references:
+helloworld: 1
+line: 2
+withnull: 2
