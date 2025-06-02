@@ -1,5 +1,5 @@
-1: Hello\x01World
-2: Line with\0null
+1: HelloxWorld
+2: Line withnull
 
 Cross references:
 helloxworld: 1

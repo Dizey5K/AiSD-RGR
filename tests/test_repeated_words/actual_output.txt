@@ -1,4 +1,4 @@
-1: Hello hello world! World, world.
+1: Hello hello world World world
 
 Cross references:
 hello: 1

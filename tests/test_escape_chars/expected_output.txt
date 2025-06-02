@@ -1,6 +1,6 @@
-1: TabHereNewLine
-2: RedText
+1: TabtHerenNewLine
+2: mRedTextm
 
 Cross references:
-tabherenewline: 1
-redtext: 2
+mredtextm: 2
+tabtherennewline: 1

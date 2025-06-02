@@ -1,4 +1,4 @@
-1: Test123!@# with "quotes"
+1: Test with quotes
 
 Cross references:
 quotes: 1
