@@ -5,14 +5,13 @@
 
 #include "Iterator.hpp"
 
-template <typename T>
-class Vector {
-  T* data = nullptr;
+template <typename T> class Vector {
+  T *data = nullptr;
   size_t size_ = 0;
   size_t capacity_ = 0;
 
   void reallocate(size_t new_capacity) {
-    T* new_data = new T[new_capacity];
+    T *new_data = new T[new_capacity];
     for (size_t i = 0; i < size_; ++i) {
       new_data[i] = data[i];
     }
@@ -21,10 +20,10 @@ class Vector {
     capacity_ = new_capacity;
   }
 
- public:
+public:
   using Iterator = ::Iterator<T>;
 
-  explicit Vector(size_t count = 0, const T& value = T()) {
+  explicit Vector(size_t count = 0, const T &value = T()) {
     if (count > 0) {
       data = new T[count];
       capacity_ = count;
@@ -37,20 +36,22 @@ class Vector {
 
   ~Vector() { delete[] data; }
 
-  void push_back(const T& value) {
+  void push_back(const T &value) {
     if (size_ >= capacity_) {
       reallocate(capacity_ == 0 ? 4 : capacity_ * 2);
     }
     data[size_++] = value;
   }
 
-  T& operator[](size_t index) {
-    if (index >= size_) throw std::out_of_range("Index out of range");
+  T &operator[](size_t index) {
+    if (index >= size_)
+      throw std::out_of_range("Index out of range");
     return data[index];
   }
 
-  const T& operator[](size_t index) const {
-    if (index >= size_) throw std::out_of_range("Index out of range");
+  const T &operator[](size_t index) const {
+    if (index >= size_)
+      throw std::out_of_range("Index out of range");
     return data[index];
   }
 
@@ -58,8 +59,9 @@ class Vector {
 
   bool empty() const { return size_ == 0; }
 
-  T& back() {
-    if (empty()) throw std::out_of_range("Vector is empty");
+  T &back() {
+    if (empty())
+      throw std::out_of_range("Vector is empty");
     return data[size_ - 1];
   }
 
