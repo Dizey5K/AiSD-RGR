@@ -1,3 +1,5 @@
 .crossref
 
 /.vscode
+.vscode
+settings.json
