@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++14 -I./include
 SRC = src/hashtable/HashTable.cpp src/main.cpp
-TARGET = crossref
+TARGET = .crossref
 
 all: $(TARGET)
 

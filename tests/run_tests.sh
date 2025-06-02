@@ -20,7 +20,7 @@ for test in "${TESTS[@]}"; do
     EXPECTED_FILE="tests/$test/expected_output.txt"
     ACTUAL_FILE="tests/$test/actual_output.txt"
     
-    ./crossref < "$INPUT_FILE" > "$ACTUAL_FILE"
+    ./.crossref < "$INPUT_FILE" > "$ACTUAL_FILE"
     
     diff -w "$EXPECTED_FILE" "$ACTUAL_FILE"
     
