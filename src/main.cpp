@@ -1,34 +1,7 @@
-#include <cctype>
 #include <iostream>
-#include <sstream>
 
 #include "../include/hashtable/HashTable.hpp"
-
-static std::string process_word(const std::string &word) {
-  std::string cleaned;
-  for (char c : word) {
-    if (std::isalpha(static_cast<unsigned char>(c))) {
-      cleaned += static_cast<char>(std::tolower(c));
-    }
-  }
-  return cleaned;
-}
-
-static void case_insensitive_sort(Vector<std::string> &keys) {
-  for (size_t i = 0; i < keys.size(); ++i) {
-    for (size_t j = i + 1; j < keys.size(); ++j) {
-      std::string a = keys[i];
-      std::string b = keys[j];
-      for (auto &ch : a)
-        ch = std::tolower(ch);
-      for (auto &ch : b)
-        ch = std::tolower(ch);
-      if (a > b) {
-        std::swap(keys[i], keys[j]);
-      }
-    }
-  }
-}
+#include "../include/utils/Utils.hpp"
 
 int main() {
   HashTable cross_ref;
@@ -40,9 +13,8 @@ int main() {
     ++line_num;
     input_lines.push_back(line);
 
-    std::istringstream iss(line);
-    std::string word;
-    while (iss >> word) {
+    Vector<std::string> words = split_into_words(line);
+    for (const std::string &word : words) {
       std::string processed = process_word(word);
       if (!processed.empty()) {
         cross_ref.insert(processed, line_num);
@@ -61,7 +33,7 @@ int main() {
   std::cout << "\nCross references:\n";
   for (size_t i = 0; i < keys.size(); ++i) {
     std::cout << keys[i] << ": ";
-    const Vector<int> &lines = cross_ref.search(keys[i]);
+    Vector<int> lines = cross_ref.search(keys[i]);
     for (size_t j = 0; j < lines.size(); ++j) {
       if (j > 0)
         std::cout << ", ";
@@ -69,5 +41,6 @@ int main() {
     }
     std::cout << "\n";
   }
+
   return 0;
 }

@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++14 -I./include
-SRC = src/hashtable/HashTable.cpp src/main.cpp
+SRC = src/hashtable/HashTable.cpp src/utils/Utils.cpp src/main.cpp
 TARGET = .crossref
 
 all: $(TARGET)
