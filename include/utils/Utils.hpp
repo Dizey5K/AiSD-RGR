@@ -4,18 +4,18 @@
 #include "containers/Vector.hpp"
 #include <string>
 
-inline bool my_isalpha(char c) {
+inline bool isAlpha(char c) {
   unsigned char uc = static_cast<unsigned char>(c);
   return (uc >= 'A' && uc <= 'Z') || (uc >= 'a' && uc <= 'z');
 }
 
-inline bool my_isspace(char c) {
+inline bool isSpace(char c) {
   unsigned char uc = static_cast<unsigned char>(c);
   return uc == ' ' || uc == '\t' || uc == '\r' || uc == '\n' || uc == '\0' ||
          uc == '\x01';
 }
 
-inline char my_tolower(char c) {
+inline char toLower(char c) {
   unsigned char uc = static_cast<unsigned char>(c);
   if (uc >= 'A' && uc <= 'Z') {
     return static_cast<char>(uc + ('a' - 'A'));
@@ -23,7 +23,7 @@ inline char my_tolower(char c) {
   return c;
 }
 
-template <typename T> inline void my_swap(T &a, T &b) {
+template <typename T> inline void Swap(T &a, T &b) {
   T temp = a;
   a = b;
   b = temp;
