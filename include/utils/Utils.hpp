@@ -29,8 +29,21 @@ template <typename T> inline void my_swap(T &a, T &b) {
   b = temp;
 }
 
+inline bool is_allowed_punctuation(char c) {
+  char puncs[] = "!,.?:;()\"";
+  for (char p : puncs) {
+    if (p == '\0')
+      break;
+    if (c == p)
+      return true;
+  }
+  return false;
+}
+
 std::string process_word(const std::string &word);
+
 void case_insensitive_sort(Vector<std::string> &keys);
+
 Vector<std::string> split_into_words(const std::string &line);
 
 #endif

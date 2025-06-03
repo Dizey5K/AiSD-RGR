@@ -10,6 +10,7 @@ TESTS=(
     "test_escape_chars"
     "test_long_word"
     "test_mixed_case"
+    "test_brackets"
 )
 
 for test in "${TESTS[@]}"; do

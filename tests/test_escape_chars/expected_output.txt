@@ -1,6 +1,4 @@
-1: TabHereNewLine
-2: RedText
+1: Tab\tHere\nNewLine
+2: \033[31mRedText\033[0m
 
 Cross references:
-tabherenewline: 1
-redtext: 2

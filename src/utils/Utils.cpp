@@ -1,12 +1,57 @@
 #include "../include/utils/Utils.hpp"
 
 std::string process_word(const std::string &word) {
-  std::string cleaned;
-  for (char c : word) {
-    if (my_isalpha(c)) {
-      cleaned += my_tolower(c);
+  if (word.empty())
+    return "";
+
+  // Находим первую букву
+  size_t start = 0;
+  while (start < word.size() && !my_isalpha(word[start]) &&
+         is_allowed_punctuation(word[start])) {
+    start++;
+  }
+
+  // Если не нашли ни одной буквы - невалидное слово
+  if (start >= word.size() || !my_isalpha(word[start])) {
+    return "";
+  }
+
+  // Находим последнюю букву
+  size_t end = word.size() - 1;
+  while (end > start && !my_isalpha(word[end]) &&
+         is_allowed_punctuation(word[end])) {
+    end--;
+  }
+
+  // Извлекаем ядро слова (от первой до последней буквы)
+  std::string core = word.substr(start, end - start + 1);
+
+  // Проверяем, что все символы в ядре - буквы или допустимые пунктуации
+  for (char c : core) {
+    if (!my_isalpha(c) && !is_allowed_punctuation(c)) {
+      return "";
     }
   }
+
+  // Удаляем пунктуацию с границ
+  size_t core_start = 0;
+  size_t core_end = core.size() - 1;
+
+  while (core_start < core.size() && is_allowed_punctuation(core[core_start])) {
+    core_start++;
+  }
+
+  while (core_end > core_start && is_allowed_punctuation(core[core_end])) {
+    core_end--;
+  }
+
+  std::string cleaned = core.substr(core_start, core_end - core_start + 1);
+
+  // Приводим к нижнему регистру
+  for (char &c : cleaned) {
+    c = my_tolower(c);
+  }
+
   return cleaned;
 }
 

@@ -2,5 +2,3 @@
 2: \033[31mRedText\033[0m
 
 Cross references:
-mredtextm: 2
-tabtherennewline: 1
