@@ -1,5 +1,5 @@
-#ifndef ITERATOR_HPP
-#define ITERATOR_HPP
+#ifndef ITERATOR
+#define ITERATOR
 
 template <typename T> class Iterator {
   T *ptr;

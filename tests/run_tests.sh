@@ -11,6 +11,7 @@ TESTS=(
     "test_long_word"
     "test_mixed_case"
     "test_brackets"
+    "test_test"
 )
 
 for test in "${TESTS[@]}"; do

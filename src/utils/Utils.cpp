@@ -22,12 +22,6 @@ std::string process_word(const std::string &word) {
 
   std::string core = word.substr(start, end - start + 1);
 
-  for (char c : core) {
-    if (!isAlpha(c) && !is_allowed_punctuation(c)) {
-      return "";
-    }
-  }
-
   size_t core_start = 0;
   size_t core_end = core.size() - 1;
 
@@ -40,6 +34,12 @@ std::string process_word(const std::string &word) {
   }
 
   std::string cleaned = core.substr(core_start, core_end - core_start + 1);
+
+  for (char c : cleaned) {
+    if (!isAlpha(c)) {
+      return "";
+    }
+  }
 
   for (char &c : cleaned) {
     c = toLower(c);

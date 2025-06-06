@@ -1,5 +1,5 @@
-#ifndef HASH_TABLE_HPP
-#define HASH_TABLE_HPP
+#ifndef HASH_TABLE
+#define HASH_TABLE
 
 #include <string>
 
@@ -22,6 +22,7 @@ class HashTable {
 
 public:
   HashTable();
+  ~HashTable();
   void insert(const std::string &key, int line);
   Vector<int> search(const std::string &key) const;
   void remove(const std::string &key);

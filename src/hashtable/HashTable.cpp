@@ -6,6 +6,17 @@ HashTable::Node::Node(const std::string &k, int line) : key(k), next(nullptr) {
 
 HashTable::HashTable() : table(101, nullptr) {}
 
+HashTable::~HashTable() {
+  for (size_t i = 0; i < table.size(); ++i) {
+    Node *current = table[i];
+    while (current) {
+      Node *next = current->next;
+      delete current;
+      current = next;
+    }
+  }
+}
+
 size_t HashTable::hash(const std::string &key) const {
   size_t hash = 5381;
   for (char c : key)
@@ -26,6 +37,7 @@ void HashTable::rehash() {
       new_table[new_idx] = current;
       current = next_node;
     }
+    table[i] = nullptr;
   }
 
   table = new_table;

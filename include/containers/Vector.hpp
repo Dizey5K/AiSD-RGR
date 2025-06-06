@@ -1,5 +1,5 @@
-#ifndef CUSTOM_VECTOR_HPP
-#define CUSTOM_VECTOR_HPP
+#ifndef CUSTOM_VECTOR
+#define CUSTOM_VECTOR
 
 #include <stdexcept>
 
@@ -32,6 +32,36 @@ public:
         data[i] = value;
       }
     }
+  }
+
+  Vector(const Vector &other) : data(nullptr), size_(0), capacity_(0) {
+    if (other.size_ > 0) {
+      data = new T[other.capacity_];
+      size_ = other.size_;
+      capacity_ = other.capacity_;
+      for (size_t i = 0; i < size_; ++i) {
+        data[i] = other.data[i];
+      }
+    }
+  }
+
+  Vector &operator=(const Vector &other) {
+    if (this != &other) {
+      delete[] data;
+      data = nullptr;
+      size_ = 0;
+      capacity_ = 0;
+
+      if (other.size_ > 0) {
+        data = new T[other.capacity_];
+        size_ = other.size_;
+        capacity_ = other.capacity_;
+        for (size_t i = 0; i < size_; ++i) {
+          data[i] = other.data[i];
+        }
+      }
+    }
+    return *this;
   }
 
   ~Vector() { delete[] data; }
